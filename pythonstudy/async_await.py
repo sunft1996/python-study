@@ -31,7 +31,7 @@ async def sub(x, y):
 if __name__ == "__main__": 
     loop = asyncio.get_event_loop()
 
-    # 任务一
+    # 任务一：Task对象是包含执行状态的，也可以不创建Task，直接用loop.run_until_complete执行协程任务（即：add(1,3)），但外部拿不到任务状态
     task1 = loop.create_task(add(1,3))
     # 任务二
     task2 = loop.create_task(sub(100, 99))
