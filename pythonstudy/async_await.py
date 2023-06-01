@@ -42,6 +42,7 @@ if __name__ == "__main__":
     # loop.run_until_complete(task2)
 
     # 调用方式二：任务在事件循环中并发执行，阻塞即切换下一个
-    loop.run_until_complete(asyncio.wait([task1, task2]))
+    # asyncio.wait会自动将协程任务包装成Task对象，并放入事件循环中
+    loop.run_until_complete(asyncio.wait([add(1,3), sub(100, 99)]))
 
     loop.close()
