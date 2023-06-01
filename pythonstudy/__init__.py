@@ -2,3 +2,4 @@
 
 # 但是需要导出给外部的模块需要放在这里
 from .main import *
+from .module import *

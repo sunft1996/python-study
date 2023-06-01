@@ -46,3 +46,37 @@ class Dog(AnimalInterface):
         print('XiaoHei is running...')
 
 dog1 = Dog()
+
+
+# Demo3: 静态属性和静态方法
+# 都可以直接被 类 和 实例对象 调用
+# 静态属性 被修改后，会影响到所有实例对象
+# 静态方法 不能访问self指针
+class ClassStaticDemo(ABC):
+    class_var = 0
+    # 定义静态方法 
+    @staticmethod
+    def static_method(x, y):
+        return x + y
+
+print(ClassStaticDemo.class_var)
+print(ClassStaticDemo.static_method(1,2))
+
+# Demo4: 枚举类
+import enum
+class Operation(enum.IntEnum):
+    # 默认情况下，第一个枚举成员的值为 0，后续枚举成员的值依次递增
+    HANDSHAKE = 0
+    HANDSHAKE_REPLY = 1
+    HEARTBEAT = 2
+    HEARTBEAT_REPLY = 3
+    SEND_MSG = 4
+    ERROR = -1
+
+# 与字典对比
+dict1 = {"name": "Tom", "age": 18, "gender": "male"}
+
+# 报错，字段无法使用key来访问
+# print(dict1.name) 
+print(dict1['name'])
+print(Operation.HANDSHAKE)
