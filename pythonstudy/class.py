@@ -80,3 +80,22 @@ dict1 = {"name": "Tom", "age": 18, "gender": "male"}
 # print(dict1.name) 
 print(dict1['name'])
 print(Operation.HANDSHAKE)
+
+
+# Demo5: 类方法
+# 类方法经常被用来实现工厂方法
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    # 第一个参数通常被命名为"cls"，而不是"self"，并且该参数指向当前类本身，而非类的实例。
+    @classmethod
+    def from_string(cls, string):
+        name, age = string.split(',')
+        age = int(age)
+        return cls(name, age)
+
+person = Person.from_string('Tom,25')
+print(person.name)
+print(person.age)
